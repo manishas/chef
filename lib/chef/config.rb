@@ -29,8 +29,6 @@ class Chef
 
     extend Mixlib::Config
 
-    config_strict_mode false
-
     # Manages the chef secret session key
     # === Returns
     # <newkey>:: A new or retrieved session key
@@ -270,7 +268,9 @@ class Chef
 
     pid_file nil
 
-    chef_server_url   "https://localhost:443"
+    default :start_chef_zero, false
+    default :chef_zero_port,  8889
+    default :chef_server_url, "https://localhost:443"
 
     rest_timeout 300
     yum_timeout 900
